@@ -1,0 +1,33 @@
+@import "tailwindcss";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/700.css";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  /* Brand accent — a bespoke violet, tuned to feel distinct from stock Tailwind indigo/violet */
+  --color-brand-50: #f5f3ff;
+  --color-brand-100: #ece7ff;
+  --color-brand-200: #dbd1ff;
+  --color-brand-300: #beabff;
+  --color-brand-400: #9e7bff;
+  --color-brand-500: #7c4dff;
+  --color-brand-600: #6a2ff5;
+  --color-brand-700: #5a22d6;
+  --color-brand-800: #4a1dae;
+  --color-brand-900: #3e1c8a;
+  --color-brand-950: #240f57;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--color-slate-50);
+}
+
+#root {
+  min-height: 100svh;
+}
