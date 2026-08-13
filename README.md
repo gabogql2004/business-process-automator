@@ -9,8 +9,6 @@ Second project in a portfolio series (the first, *Financial AI Insights
 Platform*, applies AI to data analysis; this one applies AI to business
 **processes**).
 
-<!-- TODO: add a demo GIF/screenshot here showing the builder + a run in action -->
-
 ## Features
 
 - **JWT authentication** — register/login, protected routes on both frontend and backend
