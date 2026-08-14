@@ -26,7 +26,7 @@ export async function register(req, res, next) {
     // Si REGISTRATION_CODE está seteado (típicamente en producción), el
     // registro queda cerrado a quien no conozca el código — evita que
     // cualquiera cree una cuenta y consuma la API de Claude a tu costo.
-    if (env.registrationCode && codigoInvitacion !== env.registrationCode) {
+    if (env.registrationCode && (codigoInvitacion || '').trim() !== env.registrationCode) {
       return res.status(403).json({ error: 'Código de invitación inválido' })
     }
 

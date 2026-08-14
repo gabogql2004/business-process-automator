@@ -22,5 +22,5 @@ export const env = {
   frontendUrl: (process.env.FRONTEND_URL || 'http://localhost:5173').trim(),
   // Si está seteado, el registro exige este código (ver auth.controller.js).
   // Vacío = registro abierto, útil para desarrollo local.
-  registrationCode: process.env.REGISTRATION_CODE || '',
+  registrationCode: (process.env.REGISTRATION_CODE || '').trim(),
 }
