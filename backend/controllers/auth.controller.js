@@ -15,13 +15,19 @@ function toPublicUser(user) {
 
 export async function register(req, res, next) {
   try {
-    const { email, password, nombre } = req.body
+    const { email, password, nombre, codigoInvitacion } = req.body
 
     if (!email || !password || !nombre) {
       return res.status(400).json({ error: 'email, password y nombre son requeridos' })
     }
     if (password.length < 8) {
       return res.status(400).json({ error: 'El password debe tener al menos 8 caracteres' })
+    }
+    // Si REGISTRATION_CODE está seteado (típicamente en producción), el
+    // registro queda cerrado a quien no conozca el código — evita que
+    // cualquiera cree una cuenta y consuma la API de Claude a tu costo.
+    if (env.registrationCode && codigoInvitacion !== env.registrationCode) {
+      return res.status(403).json({ error: 'Código de invitación inválido' })
     }
 
     const existing = await prisma.user.findUnique({ where: { email } })

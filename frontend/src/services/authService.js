@@ -1,7 +1,7 @@
 import api from './api'
 
-export async function registerRequest({ email, password, nombre }) {
-  const { data } = await api.post('/auth/register', { email, password, nombre })
+export async function registerRequest({ email, password, nombre, codigoInvitacion }) {
+  const { data } = await api.post('/auth/register', { email, password, nombre, codigoInvitacion })
   return data
 }
 

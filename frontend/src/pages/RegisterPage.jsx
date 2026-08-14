@@ -13,6 +13,7 @@ function RegisterPage() {
   const [nombre, setNombre] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [codigoInvitacion, setCodigoInvitacion] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
@@ -21,7 +22,7 @@ function RegisterPage() {
     setError('')
     setLoading(true)
     try {
-      await register({ nombre, email, password })
+      await register({ nombre, email, password, codigoInvitacion })
       navigate('/')
     } catch (err) {
       setError(err.response?.data?.error || 'No se pudo crear la cuenta')
@@ -83,6 +84,18 @@ function RegisterPage() {
                 onChange={(e) => setPassword(e.target.value)}
               />
               <p className="mt-1.5 text-xs text-slate-400">Mínimo 8 caracteres</p>
+            </div>
+
+            <div>
+              <label className="mb-1.5 block text-sm font-medium text-slate-700">
+                Código de invitación
+              </label>
+              <Input
+                type="text"
+                value={codigoInvitacion}
+                onChange={(e) => setCodigoInvitacion(e.target.value)}
+                placeholder="Solo si te lo compartieron"
+              />
             </div>
 
             <Button type="submit" disabled={loading} className="w-full">

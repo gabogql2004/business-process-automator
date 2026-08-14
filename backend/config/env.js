@@ -17,4 +17,7 @@ export const env = {
   googleServiceAccountJson: process.env.GOOGLE_SERVICE_ACCOUNT_JSON || '',
   resendApiKey: process.env.RESEND_API_KEY || '',
   frontendUrl: process.env.FRONTEND_URL || 'http://localhost:5173',
+  // Si está seteado, el registro exige este código (ver auth.controller.js).
+  // Vacío = registro abierto, útil para desarrollo local.
+  registrationCode: process.env.REGISTRATION_CODE || '',
 }
